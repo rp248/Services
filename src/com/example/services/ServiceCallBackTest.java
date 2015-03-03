@@ -36,8 +36,9 @@ public class ServiceCallBackTest extends Service {
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		Log.d(TAG,String.valueOf("Flags:"+flags+"-StartID:"+startId));
 		handleStart();
-		return super.onStartCommand(intent, flags, startId);
+		return START_NOT_STICKY;
 	}
+	
 	/*
 	 * use this model for backward compatability
 	 */
