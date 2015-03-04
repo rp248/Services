@@ -22,7 +22,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="ServiceCallBackTest"></service>
+        <service android:name="StartStickyConstantTest"></service>
+        <service android:name="StartRedeliveryIntentConstantTest"></service>
+        <service android:name="StartFlagRetryTest"
+                 android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.services.START_FLAG_RETRY_TEST"/>
+             </intent-filter>
+             
+        </service>
     </application>
 
 </manifest>

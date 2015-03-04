@@ -2,7 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
+    android:orientation="vertical" 
+    android:gravity="center_horizontal">
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startStickyConstantTest"
+        android:text="START_STICKY_TEST" />
+     <Button
+        android:id="@+id/button12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="stopStartStickyConstantTest"
+        android:text="STOP_START_STICKY_TEST" />
+     <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startRedeliveryIntentConstantTest"
+        android:text="START_REDELIVER_INTENT_TEST" />
+     <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startFlagRetryTest"
+        android:text="START_FLAG_RETRY_TEST" />
 
 </LinearLayout>
