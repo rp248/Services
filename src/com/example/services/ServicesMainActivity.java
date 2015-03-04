@@ -39,5 +39,6 @@ public class ServicesMainActivity extends ActionBarActivity {
 //    	startActivity(otherApp);
     	startService(startFlagRetryTest = new Intent(this,StartFlagRetryTest.class));
     }
+
 	
 }
