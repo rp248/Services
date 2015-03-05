@@ -7,11 +7,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
 public class ServicesMainActivity extends ActionBarActivity {
    private Intent startStickyConstantTest;
    private Intent startRedeliveryIntentConstantTest;
    private Intent startFlagRetryTest;
+   Button button;
+   TextView view;
+   RadioButton button2;
    Activity a;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
