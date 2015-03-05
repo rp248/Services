@@ -2,7 +2,6 @@ package com.example.services;
 
 import android.app.Service;
 import android.content.Intent;
-import android.content.res.Resources.Theme;
 import android.os.IBinder;
 import android.util.Log;
 /*
@@ -45,7 +44,7 @@ public class StartStickyConstantTest extends Service {
 	 * 2>onStartCommand() is called by android system with the following parameters.
 	 *   Intent { cmp=com.example.services/.StartStickyConstantTest }:0:1
 	 *   0= i think zero is passed to onstartCommand() whenever startService or
-	 *      bindService is called or auto restarted by the android system with 
+	 *      bindService is called for the first time or auto restarted by the android system with 
 	 *      START_STICKY return type.
 	 *   1= startId,A unique integer representing this specific request to start the service.
 	 *      This startId is used in stopself(int) or stopSelfResult(int).
@@ -62,6 +61,7 @@ public class StartStickyConstantTest extends Service {
 	 * 4>Android system automatically calls this method with following parameters
 	 *   null:0:3
 	 * 
+	 *    
 	 */
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
