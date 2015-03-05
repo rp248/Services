@@ -25,7 +25,8 @@
         <service android:name="StartStickyConstantTest"></service>
         <service android:name="StartRedeliveryIntentConstantTest"></service>
         <service android:name="StartFlagRetryTest"
-                 android:exported="true">
+                 android:exported="true"
+                 android:process=":background">
             <intent-filter>
                 <action android:name="com.example.services.START_FLAG_RETRY_TEST"/>
              </intent-filter>
