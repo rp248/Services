@@ -21,22 +21,27 @@ import android.view.View;
 public class ServicesBinderAndMiscTestActivity extends ActionBarActivity {
 	public static final String TAG = "ServicesBinderAndMiscTestActivity";
     private ServiceConnection localBoundServiceConnection;
-    private Intent localBoundServiceIntent;
+    private Intent localBoundServiceIntentUsingBind;
+    private Intent localBoundServiceIntentUsingStart;
     private LocalBoundService boundService;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_services_binder_and_misc_test);
 	}
-    public void startLocalBoundService(View view){
-    	localBoundServiceIntent = new Intent(this,LocalBoundService.class);
-    	boolean b = bindService(localBoundServiceIntent, localBoundServiceConnection=new LocalBoundServiceConnection(),Context.BIND_AUTO_CREATE);
+    public void startLocalBoundServiceUsingBind(View view){
+    	localBoundServiceIntentUsingBind = new Intent(this,LocalBoundService.class);
+    	boolean b = bindService(localBoundServiceIntentUsingBind, localBoundServiceConnection=new LocalBoundServiceConnection(),Context.BIND_AUTO_CREATE);
     	Log.d(TAG,""+b);
     }
     public void stopLocalBoundServiceUsingBindersPublicMethods(View view){
     	if(boundService!=null){
     		boundService.stopLocalBoundService();
     	}
+    }
+    public void startLocalBoundServiceUsingStart(View view){
+    	localBoundServiceIntentUsingStart =new Intent(this,LocalBoundService.class);
+    	startService(localBoundServiceIntentUsingStart);
     }
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

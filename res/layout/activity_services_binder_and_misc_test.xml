@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.example.services.binders.ServicesBinderAndMiscTestActivity" >
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startBoundServiceUsingBind"
+        android:text="START_BOUND_SERVICE_USING_BIND" />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="stopBoundServiceUsingBindersPublicMethods"
+        android:text="STOP_BOUND_SERVICE_USING_BINDER'S_PUBLIC METHODS" />
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="stopBoundServiceUsingStopMethod"
+        android:text="STOP_BOUND_SERVICE_USING_STOP_METHOD" />
+     <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startServiceUsingStart"
+        android:text="START_SERVICE_USING_START" />
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startServiceWithOutbind"
+        android:text="STOP_SERVICE_USING_BINDER'S_PUBLIC METHODS" />
+
+</LinearLayout>

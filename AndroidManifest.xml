@@ -16,21 +16,33 @@
         <activity
             android:name=".ServicesMainActivity"
             android:label="@string/app_name" >
+           
+        </activity>
+
+        <service android:name=".StartStickyConstantTest" ></service>
+        <service android:name=".StartRedeliveryIntentConstantTest" ></service>
+        <service
+            android:name=".StartFlagRetryTest"
+            android:exported="true"
+            android:process=":background" >
             <intent-filter>
+                <action android:name="com.example.services.START_FLAG_RETRY_TEST" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.example.services.binders.ServicesBinderAndMiscTestActivity"
+            android:label="@string/title_activity_services_binder_and_misc_test" >
+             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="StartStickyConstantTest"></service>
-        <service android:name="StartRedeliveryIntentConstantTest"></service>
-        <service android:name="StartFlagRetryTest"
-                 android:exported="true"
-                 android:process=":background">
+        <service android:name="com.example.services.binders.LocalBoundService">
             <intent-filter>
-                <action android:name="com.example.services.START_FLAG_RETRY_TEST"/>
-             </intent-filter>
-             
+                <action android:name="com.example.services.binders.START_LOCAL_BOUND_SERVICE"/>
+            </intent-filter>
         </service>
     </application>
 

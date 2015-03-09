@@ -9,6 +9,18 @@ import android.util.Log;
 public class LocalBoundService extends Service {
 	public static final String TAG = "LocalBoundService";
 	private IBinder localServiceBinder = new LocalServiceBinder();
+	/*
+	 * Called this method whenever other component starts the service using
+	 * bindService().
+	 * If the this is already bind to a component and that component again tries to bind to 
+	 * this service,in that case onBind() will not be called, only onServiceConnected() callback
+	 * method will be called.
+	 * Test_1:
+	 *      1>First time a component tries to bind with this service
+	 *        onBind() will be called and also onServiceConnected() will be called
+	 *      2>Again the same component tries to bind with this service,which is already bind 
+	 *        with this service,then only onServiceConnected() will be called.
+	 */
 	@Override
 	public IBinder onBind(Intent intent) {
 		Log.d(TAG, "onBind");
