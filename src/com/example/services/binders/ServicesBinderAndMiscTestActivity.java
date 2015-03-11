@@ -1,47 +1,66 @@
 package com.example.services.binders;
 
-import com.example.services.R;
-import com.example.services.R.id;
-import com.example.services.R.layout;
-import com.example.services.R.menu;
-import com.example.services.binders.LocalBoundService.LocalServiceBinder;
-
-import android.support.v7.app.ActionBarActivity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.services.R;
+import com.example.services.binders.LocalBoundService.LocalServiceBinder;
+
 public class ServicesBinderAndMiscTestActivity extends ActionBarActivity {
 	public static final String TAG = "ServicesBinderAndMiscTestActivity";
     private ServiceConnection localBoundServiceConnection;
-    private Intent localBoundServiceIntentUsingBind;
-    private Intent localBoundServiceIntentUsingStart;
+    private Intent boundServiceIntent;
+    private Intent startServiceIntent;
     private LocalBoundService boundService;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_services_binder_and_misc_test);
 	}
-    public void startLocalBoundServiceUsingBind(View view){
-    	localBoundServiceIntentUsingBind = new Intent(this,LocalBoundService.class);
-    	boolean b = bindService(localBoundServiceIntentUsingBind, localBoundServiceConnection=new LocalBoundServiceConnection(),Context.BIND_AUTO_CREATE);
+	/*
+	*Calls onCreate(),onBind(),onServiceConnected().
+	*/
+    public void startBoundServiceUsingBindMethod(View view){
+    	boundServiceIntent = new Intent(this,LocalBoundService.class);
+    	boolean b = bindService(boundServiceIntent, localBoundServiceConnection=new LocalBoundServiceConnection(),Context.BIND_AUTO_CREATE);
     	Log.d(TAG,""+b);
     }
-    public void stopLocalBoundServiceUsingBindersPublicMethods(View view){
+    /*
+     * Stopping a bound service using binders public methods,i.e selfStop(),does 
+     * not call onDestroy()(i think it does not stop a bound service).
+     */
+    public void stopBoundServiceUsingBindersPublicMethods(View view){
     	if(boundService!=null){
     		boundService.stopLocalBoundService();
     	}
     }
-    public void startLocalBoundServiceUsingStart(View view){
-    	localBoundServiceIntentUsingStart =new Intent(this,LocalBoundService.class);
-    	startService(localBoundServiceIntentUsingStart);
+    public void stopBoundServiceUsingUnBindService(View view){
+    	if(localBoundServiceConnection!=null)
+    	unbindService(localBoundServiceConnection);
+    }
+    /*
+     * We can't stop a bounded service using stopService().If we try to stop the bound service using 
+     * stopService(), it does nothing.
+     */
+    public void stopBoundServiceUsingStopMethod(View view){
+    	stopService(boundServiceIntent);
+    }
+    
+    public void startServiceUsingStartMethod(View view){
+    	startServiceIntent = new Intent(this, LocalBoundService.class);
+    	startService(startServiceIntent);
+    }
+    public void stopServiceUsingStopMethod(View view){
+    	stopService(startServiceIntent);
     }
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

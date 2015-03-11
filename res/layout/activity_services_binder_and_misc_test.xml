@@ -10,7 +10,7 @@
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="startBoundServiceUsingBind"
+        android:onClick="startBoundServiceUsingBindMethod"
         android:text="START_BOUND_SERVICE_USING_BIND" />
     <Button
         android:id="@+id/button2"
@@ -18,6 +18,12 @@
         android:layout_height="wrap_content"
         android:onClick="stopBoundServiceUsingBindersPublicMethods"
         android:text="STOP_BOUND_SERVICE_USING_BINDER'S_PUBLIC METHODS" />
+    <Button
+        android:id="@+id/button33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="stopBoundServiceUsingUnBindService"
+        android:text="STOP BOUND SERVICE USING UN BIND SERVICE METHOD"/>
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
@@ -28,13 +34,13 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="startServiceUsingStart"
-        android:text="START_SERVICE_USING_START" />
+        android:onClick="startServiceUsingStartMethod"
+        android:text="START_SERVICE_USING_START_METHOD" />
     <Button
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="startServiceWithOutbind"
-        android:text="STOP_SERVICE_USING_BINDER'S_PUBLIC METHODS" />
+        android:onClick="stopServiceUsingStopMethod"
+        android:text="STOP_SERVICE_USING_STOP_METHOD" />
 
 </LinearLayout>
